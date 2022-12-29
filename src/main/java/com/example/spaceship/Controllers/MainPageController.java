@@ -1,6 +1,8 @@
 package com.example.spaceship.Controllers;
 
 import com.example.spaceship.Service.NoTripulatedRocketService;
+import com.example.spaceship.Service.PropelledRocketService;
+import com.example.spaceship.Service.TripulatedRocketService;
 import com.example.spaceship.models.Entities.NoTripulatedRocket;
 import com.example.spaceship.models.Entities.PropelledRocket;
 import com.example.spaceship.models.Entities.Rocket;
@@ -22,10 +24,10 @@ public class MainPageController {
     private NoTripulatedRocketService noTripulatedRocketService;
 
     @Autowired
-    private TripulatedRocketRepo tripulatedRocketRepo;
+    private TripulatedRocketService tripulatedRocketService;
 
     @Autowired
-    private PropellerRepository propellerRepository;
+    private PropelledRocketService propelledRocketService;
 
     @RequestMapping(value = "/")
     public String getIndex() {
@@ -57,4 +59,25 @@ public class MainPageController {
     }
 
 
+    @GetMapping(value = "/verCatalogo")
+    public String verCatalogo(Model model) {
+        List<NoTripulatedRocket> listaNTR = noTripulatedRocketService.getAllShipsNoDeleted(null);
+        List<TripulatedRocket> listaTR = tripulatedRocketService.getAllShipsNoDeleted(null);
+        List<PropelledRocket> listaPR = propelledRocketService.getAllShipsNoDeleted(null);
+        Rocket rocket = new Rocket();
+
+        model.addAttribute("rocket", rocket);
+        model.addAttribute("NoTripulados", listaNTR);
+        model.addAttribute("Tripulados", listaTR);
+        model.addAttribute("Propulsor", listaPR);
+        return "catalogo";
+    }
+
+
+    @PostMapping(value = "/verCatalogo/Filtrado")
+    public String verCatalogo(@ModelAttribute("rocket") Rocket rocket,
+                              Model) {
+
+        return "redirect:/verCatalogo";
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.spaceship.models.Entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class TripulatedRocket extends Rocket{
 
     @Id

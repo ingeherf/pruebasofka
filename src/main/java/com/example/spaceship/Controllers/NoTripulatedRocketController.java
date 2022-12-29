@@ -4,6 +4,7 @@ import com.example.spaceship.Service.NoTripulatedRocketService;
 import com.example.spaceship.models.Entities.NoTripulatedRocket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -14,7 +15,8 @@ public class NoTripulatedRocketController {
     private NoTripulatedRocketService noTripulatedRocketService;
 
     @PostMapping(value = "/añadirNave/1")
-    public String guardar(@ModelAttribute(value = "rocket")NoTripulatedRocket rocket) {
+    public String guardar(@ModelAttribute(value = "rocket") NoTripulatedRocket rocket)
+    {
         noTripulatedRocketService.newShip(rocket);
         return "redirect:/";
     }
