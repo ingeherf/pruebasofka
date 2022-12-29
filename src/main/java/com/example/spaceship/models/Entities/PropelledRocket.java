@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @NoArgsConstructor
-public abstract class PropelledRocket extends Rocket{
+public class PropelledRocket extends Rocket{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,6 +21,7 @@ public abstract class PropelledRocket extends Rocket{
     @Column(name = "motorCount", nullable = false)
     private String contadorMotor;
 
+    /*
     public Double desacelerar(double velocidad, boolean menos0) {
         if (!menos0) {
             setSpeed(0.0);
@@ -40,5 +41,5 @@ public abstract class PropelledRocket extends Rocket{
     @Override
     public Double desacelerar(double velocidad) {
         return (getSpeed() - velocidad <= 0)? 0: desacelerar(velocidad, false);
-    }
+    }*/
 }

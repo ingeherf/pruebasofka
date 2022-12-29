@@ -18,16 +18,9 @@ public abstract class NoTripulatedRocket extends Rocket{
     @Column(name = "idNoTripulated")
     private Integer id;
 
-    @Override
-    public String toString() {
-        return "This is the no tripullated rocket info: "
-                + "\n" + getName()
-                + "\n" + getCountry()
-                + "\n" + getCompany();
 
 
-    }
-
+    /*
     public Double desacelerar(double velocidad, boolean menos0) {
         if (!menos0) {
             setSpeed(0.0);
@@ -47,5 +40,5 @@ public abstract class NoTripulatedRocket extends Rocket{
     @Override
     public Double desacelerar(double velocidad) {
         return (getSpeed() - velocidad <= 0)? 0: desacelerar(velocidad, false);
-    }
+    }*/
 }

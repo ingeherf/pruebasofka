@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @NoArgsConstructor
-public abstract class TripulatedRocket extends Rocket{
+public class TripulatedRocket extends Rocket{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +21,7 @@ public abstract class TripulatedRocket extends Rocket{
     @Column(name = "astronautCounter")
     private String astronautasABordo;
 
-
+    /*
     public Double desacelerar(double velocidad, boolean menos0) {
         if (!menos0) {
             setSpeed(0.0);
@@ -42,4 +42,6 @@ public abstract class TripulatedRocket extends Rocket{
     public Double desacelerar(double velocidad) {
         return (getSpeed() - velocidad <= 0)? 0: desacelerar(velocidad, false);
     }
+
+     */
 }

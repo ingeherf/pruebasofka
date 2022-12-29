@@ -1,24 +1,15 @@
 package com.example.spaceship.models.Entities;
 
-import com.example.spaceship.models.Repositories.rocketRepository;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "Rocket")
 @Setter
 @Getter
 @NoArgsConstructor
-public abstract class Rocket {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idRocket", nullable = false)
-    private Integer idRocket;
+public class Rocket {
 
     @Column(name = "name", nullable = false, length = 100)
     private String name;
@@ -45,16 +36,12 @@ public abstract class Rocket {
     private String country;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idRocket", referencedColumnName = "idRocket")
-    private PropelledRocket propulsor;
-
 
     /**
      * Métodos que permitirán la modificación de la velocidad en caso que la nave esté activa.
      */
-    public abstract Double acelerar(int velocidad);
-    public abstract Double desacelerar(double velocidad);
+    //public abstract Double acelerar(int velocidad);
+    //public abstract Double desacelerar(double velocidad);
 
 }
 
