@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Hola</title>
+
 </head>
 <body>
-    Hola
+    <table>
+        <tr>
+            <td th:text = "${nave.id}"></td>
+            <td th:text = "${nave.name}"></td>
+            <td th:text = "${nave.weight}"></td>
+            <td th:text = "${nave.height}"></td>
+            <td th:text = "${nave.speed}"></td>
+            <td th:text = "${nave.name}"></td>
+            <td th:text = "${nave.name}"></td>
+            <td th:text = "${nave.name}"></td>
+
+        </tr>
+    </table>
 </body>
 </html>

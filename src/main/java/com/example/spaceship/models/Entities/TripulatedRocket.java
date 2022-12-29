@@ -15,10 +15,10 @@ public class TripulatedRocket extends Rocket{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idTripulated")
+    @Column(name = "idtripulated")
     private Integer id;
 
-    @Column(name = "astronautCounter")
+    @Column(name = "astronautcounter")
     private String astronautasABordo;
 
     /*

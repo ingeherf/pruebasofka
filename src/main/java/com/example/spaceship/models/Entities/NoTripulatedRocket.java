@@ -10,35 +10,13 @@ import javax.persistence.*;
 @Table(name = "notripulated")
 @Setter
 @Getter
-@NoArgsConstructor
-public abstract class NoTripulatedRocket extends Rocket{
+public class NoTripulatedRocket extends Rocket{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idNoTripulated")
+    @Column(name = "idnotripulated")
     private Integer id;
 
 
 
-    /*
-    public Double desacelerar(double velocidad, boolean menos0) {
-        if (!menos0) {
-            setSpeed(0.0);
-        }
-        else {
-            setSpeed(getSpeed() - velocidad);
-        }
-        return getSpeed();
-    }
-
-    @Override
-    public Double acelerar(int velocidad) {
-        setSpeed(getSpeed() + velocidad);
-        return getSpeed();
-    }
-
-    @Override
-    public Double desacelerar(double velocidad) {
-        return (getSpeed() - velocidad <= 0)? 0: desacelerar(velocidad, false);
-    }*/
 }
