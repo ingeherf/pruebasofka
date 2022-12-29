@@ -14,32 +14,11 @@ import javax.persistence.*;
 public class PropelledRocket extends Rocket{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idPropeller")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idpropeller")
     private Integer id;
 
-    @Column(name = "motorCount", nullable = false)
+    @Column(name = "motorcount", nullable = false)
     private String contadorMotor;
 
-    /*
-    public Double desacelerar(double velocidad, boolean menos0) {
-        if (!menos0) {
-            setSpeed(0.0);
-        }
-        else {
-            setSpeed(getSpeed() - velocidad);
-        }
-        return getSpeed();
-    }
-
-    @Override
-    public Double acelerar(int velocidad) {
-        setSpeed(getSpeed() + velocidad);
-        return getSpeed();
-    }
-
-    @Override
-    public Double desacelerar(double velocidad) {
-        return (getSpeed() - velocidad <= 0)? 0: desacelerar(velocidad, false);
-    }*/
 }

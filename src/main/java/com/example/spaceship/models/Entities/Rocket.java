@@ -7,6 +7,14 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.sql.Date;
 
+/**
+ * La clase Rocket es la clase Padre de los diferentes cohetes.
+ * Dado a que se está referenciando unas columnas a través del JPA,
+ * es necesario usar la anotación @MappedSuperClass. Cómo su nombre lo indica,
+ * mapea los datos de un conjunto de atributos que hay en común entre cierto grupo de tablas.
+ * Además, se utiliza la librería Lombok para evitar escribir los Setter y Getter de los atributos
+ * y el constructor que solo inicializa esta clase.
+ */
 @MappedSuperclass
 @Setter
 @Getter
@@ -37,7 +45,7 @@ public class Rocket {
     @Column(name = "country", nullable = false, length = 100)
     protected String country;
 
-    @Column(name = "active")
+    @Column(name = "active", nullable = false)
     protected boolean activo;
 
     @Column(name = "deleted")

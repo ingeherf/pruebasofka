@@ -14,30 +14,21 @@ import java.util.Optional;
  * Este servicio permitirá la utilización del repositorio JpaRepository
  * teniendo en cuenta la base de datos spaceship en la tabla NoTripullated.
  */
-public class NoTripulatedRocketService {
+public class NoTripulatedRocketService implements IShipService<NoTripulatedRocket>{
 
     
     @Autowired
     private NoTripulatedRocketRepo noTripulatedRocketRepo;
-    @Autowired
-    private PropellerRepository rocket;
 
-    /**
-     * Método para agregar una nueva nave no tripulada
-     * @param newRocket
-     */
-    public void addNewShip(NoTripulatedRocket newRocket) {
-        if (noTripulatedRocketRepo.findById(newRocket.getId()).isEmpty()) {
-            noTripulatedRocketRepo.save(newRocket);
-        }
+
+
+    @Override
+    public void newShip(NoTripulatedRocket newShip) {
+        noTripulatedRocketRepo.save(newShip);
     }
 
-
-    public List<NoTripulatedRocket> getAll() {
-        return noTripulatedRocketRepo.findAll();
-    }
-
-    public String getInfo(int id) {
-        return noTripulatedRocketRepo.findById(id).toString();
+    @Override
+    public List<NoTripulatedRocket> getAllShipsNoDeleted() {
+        return noTripulatedRocketRepo.getNoDeletedRockets();
     }
 }
