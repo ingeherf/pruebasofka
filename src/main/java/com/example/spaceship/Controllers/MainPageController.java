@@ -61,6 +61,9 @@ public class MainPageController {
 
     @GetMapping(value = "/verCatalogo")
     public String verCatalogo(Model model) {
+        //List<NoTripulatedRocket> listaNTR = noTripulatedRocketService.getFilterResults(
+         //       null, "IV", null, null, null, null, null,
+          //      null, null, null);
         List<NoTripulatedRocket> listaNTR = noTripulatedRocketService.getAllShipsNoDeleted(null);
         List<TripulatedRocket> listaTR = tripulatedRocketService.getAllShipsNoDeleted(null);
         List<PropelledRocket> listaPR = propelledRocketService.getAllShipsNoDeleted(null);
@@ -76,8 +79,44 @@ public class MainPageController {
 
     @PostMapping(value = "/verCatalogo/Filtrado")
     public String verCatalogo(@ModelAttribute("rocket") Rocket rocket,
-                              Model) {
+                              Model model)
+    {
+        List<NoTripulatedRocket> listaNTR = noTripulatedRocketService.getFilterResults(
+                null, rocket.getName(), rocket.getSpeed(), rocket.getWeight(), rocket.getHeight(),
+                rocket.getLoadWeight(), rocket.getTotalDistance(),
+                rocket.getCompany(), rocket.getCountry(), null);
 
-        return "redirect:/verCatalogo";
+        List<TripulatedRocket> listaTR = tripulatedRocketService.getFilterResults(
+                null, rocket.getName(), rocket.getSpeed(), rocket.getWeight(), rocket.getHeight(),
+                rocket.getLoadWeight(), rocket.getTotalDistance(),
+                rocket.getCompany(), rocket.getCountry(), null);
+
+        List<PropelledRocket> listaPR = propelledRocketService.getFilterResults(
+                null, rocket.getName(), rocket.getSpeed(), rocket.getWeight(), rocket.getHeight(),
+                rocket.getLoadWeight(), rocket.getTotalDistance(),
+                rocket.getCompany(), rocket.getCountry(), null);
+
+        model.addAttribute("NoTripulados", listaNTR);
+        model.addAttribute("Tripulados", listaTR);
+        model.addAttribute("Propulsor", listaPR);
+        return "catalogo";
+    }
+
+
+    /**
+     * Verificación de si una instancia de tipo Rocket es null o no a pesar de su
+     * Inicialización
+     */
+    private boolean verificarNullRocket(Rocket rocket) {
+        return ((rocket.getHeight() == null)
+                && rocket.getCompany().equals(null)
+                && rocket.getCountry().equals(null)
+                && rocket.getName().equals(null)
+                && rocket.getLoadWeight() == null
+                && rocket.getSpeed() == null
+                && rocket.getTotalDistance() == null
+                && rocket.getWeight() == null
+        )? true:false;
+
     }
 }

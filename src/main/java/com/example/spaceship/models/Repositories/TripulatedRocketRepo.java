@@ -18,14 +18,14 @@ public interface TripulatedRocketRepo extends JpaRepository<TripulatedRocket, In
 
     @Query("SELECT u FROM TripulatedRocket u WHERE" +
             " u.id = ?1" +
-            " OR u.name LIKE %?2%" +
+            " OR u.name = ?2" +
             " OR u.speed = ?3" +
             " OR u.weight = ?4" +
             " OR u.height = ?5" +
             " OR u.loadWeight = ?6" +
             " OR u.totalDistance = ?7" +
-            " OR u.company LIKE %?8%" +
-            " OR u.country LIKE %?9%")
+            " OR u.company = ?8" +
+            " OR u.country = ?9")
     public Optional<List<TripulatedRocket>> filterTRShip(
             Integer id,
             String name,
