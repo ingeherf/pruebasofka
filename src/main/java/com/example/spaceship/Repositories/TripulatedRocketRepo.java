@@ -1,8 +1,6 @@
-package com.example.spaceship.models.Repositories;
+package com.example.spaceship.Repositories;
 
 import com.example.spaceship.models.Entities.NoTripulatedRocket;
-import com.example.spaceship.models.Entities.PropelledRocket;
-import com.example.spaceship.models.Entities.Rocket;
 import com.example.spaceship.models.Entities.TripulatedRocket;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,15 +11,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface PropellerRepository extends JpaRepository<PropelledRocket, Integer> {
+public interface TripulatedRocketRepo extends JpaRepository<TripulatedRocket, Integer> {
 
-    public Optional<List<PropelledRocket>> findByName(String name);
+    public Optional<List<TripulatedRocket>> findByName(String name);
+    public Optional<List<TripulatedRocket>> findByEliminado(Date eliminado);
 
-    public Optional<List<PropelledRocket>> findByEliminado(Date eliminado);
-
-    @Query("SELECT u FROM PropelledRocket u WHERE" +
+    @Query("SELECT u FROM TripulatedRocket u WHERE" +
             " u.id = ?1" +
-            " OR u.name LIKE %?2%" +
+            " OR u.name = ?2" +
             " OR u.speed = ?3" +
             " OR u.weight = ?4" +
             " OR u.height = ?5" +
@@ -29,7 +26,7 @@ public interface PropellerRepository extends JpaRepository<PropelledRocket, Inte
             " OR u.totalDistance = ?7" +
             " OR u.company = ?8" +
             " OR u.country = ?9")
-    public Optional<List<PropelledRocket>> filterPShip(
+    public Optional<List<TripulatedRocket>> filterTRShip(
             Integer id,
             String name,
             Double speed,

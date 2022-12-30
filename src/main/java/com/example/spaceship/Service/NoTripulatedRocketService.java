@@ -1,8 +1,7 @@
 package com.example.spaceship.Service;
 
 import com.example.spaceship.models.Entities.NoTripulatedRocket;
-import com.example.spaceship.models.Repositories.NoTripulatedRocketRepo;
-import com.example.spaceship.models.Repositories.PropellerRepository;
+import com.example.spaceship.Repositories.NoTripulatedRocketRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
