@@ -24,6 +24,36 @@
     </style>
 </head>
 <body class = "">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">Inicio</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/verCatalogo}">Ver Catalogo</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Añadir
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/añadirNave/1}">Nave Sin Tripulación</a></li>
+                            <li><a class="dropdown-item" th:href="@{/añadirNave/2}">Nave Con Tripulación</a></li>
+                            <li><a class="dropdown-item" th:href="@{/añadirNave/3}">Nave Propulsora</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
     <main class="container bg-dark text-light pt-1 mt-2">
         <h1 class="fs-1 text-center mt-3">Añadir Nave No Tripulada</h1>
 
