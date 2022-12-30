@@ -17,7 +17,7 @@ public interface NoTripulatedRocketRepo extends JpaRepository<NoTripulatedRocket
 
     @Query("SELECT u FROM NoTripulatedRocket u WHERE" +
             " u.id = ?1" +
-            " OR u.name = ?2" +
+            " OR u.name LIKE %?2%" +
             " OR u.speed = ?3" +
             " OR u.weight = ?4" +
             " OR u.height = ?5" +

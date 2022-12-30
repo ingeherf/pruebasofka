@@ -19,23 +19,15 @@
         .container {
             border-radius: 5px;
         }
+
     </style>
 </head>
 <body>
     <main class="container"
     style="background-color: rgb(68, 68, 68);">
         <div class="row mt-5">
-            <!--Introducción. Información general de la persona-->
-            <div class="col-lg-6 col-sm-12">
-                <div id="logo">
-                    <img th:src="@{logo.png}"
-                         alt="Logo de cohete pasando por la luna.">
-                </div>
-            </div>
-
-
             <!--Sección de agregar, filtrar y ver datos.-->
-            <div class="col-lg-6 col-sm-12">
+            <div class="col-12">
                 <h1 class="fs-1 mt-5 text-center">Menú</h1>
                 <section id="addShips">
                     <h2 class="fs-2 text-center">Agregar Naves</h2>
@@ -46,12 +38,16 @@
                     </div>
                 </section>
 
-                <section id="catalogo mt-4">
+                <section class="catalogo mt-4"  id="">
                     <h2 class="fs-2 text-center">Ver Naves Registradas</h2>
                     <div class="button-group d-grid">
                         <a class = "btn btn-primary mt-2"  th:href="@{/verCatalogo}">Ver Catalogo</a>
                     </div>
                 </section>
+
+                <p></p>
+                <p></p>
+                <p></p>
             </div>
         </div>
 
