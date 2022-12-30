@@ -103,20 +103,4 @@ public class MainPageController {
     }
 
 
-    /**
-     * Verificación de si una instancia de tipo Rocket es null o no a pesar de su
-     * Inicialización
-     */
-    private boolean verificarNullRocket(Rocket rocket) {
-        return ((rocket.getHeight() == null)
-                && rocket.getCompany().equals(null)
-                && rocket.getCountry().equals(null)
-                && rocket.getName().equals(null)
-                && rocket.getLoadWeight() == null
-                && rocket.getSpeed() == null
-                && rocket.getTotalDistance() == null
-                && rocket.getWeight() == null
-        )? true:false;
-
-    }
 }
